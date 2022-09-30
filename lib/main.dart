@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
 
         child: Column(
-        test
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
