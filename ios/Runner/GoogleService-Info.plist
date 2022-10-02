@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>835296411177-3i6ek5ao2828dspfk8trdbb4skps5ll2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.835296411177-3i6ek5ao2828dspfk8trdbb4skps5ll2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCdmlRGGcrCAbH7O6dYnkhb7EY8quUBxa0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>835296411177</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.klapp02</string>
+	<key>PROJECT_ID</key>
+	<string>klapp-5a43c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>klapp-5a43c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:835296411177:ios:4fc93066b6c0a2cfa92638</string>
+</dict>
+</plist>

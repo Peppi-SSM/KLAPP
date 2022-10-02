@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "835296411177",
+    "project_id": "klapp-5a43c",
+    "storage_bucket": "klapp-5a43c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835296411177:android:2e02904ce8bee6a1a92638",
+        "android_client_info": {
+          "package_name": "com.example.klapp02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835296411177-oeg97ol5k748qn2btm5tlunbh0ltv8bt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa739W5hjUC-utLV0AVmk1thpc8qWZOkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835296411177-oeg97ol5k748qn2btm5tlunbh0ltv8bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835296411177-3i6ek5ao2828dspfk8trdbb4skps5ll2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.klapp02"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

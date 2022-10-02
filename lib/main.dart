@@ -1,6 +1,11 @@
-import 'package:flutter/material.dart';
+import 'Paths.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -16,10 +21,12 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const AuthGate(), //Is in LoginScreen
     );
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -41,17 +48,24 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+Future<void>_signOut()async{
+    await FirebaseAuth.instance.signOut();
+}
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-
+        actions: [
+          IconButton(
+            onPressed: ()=> _signOut(),
+            icon: Icon(Icons.logout_rounded),
+          )
+        ],
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
 
           mainAxisAlignment: MainAxisAlignment.center,
