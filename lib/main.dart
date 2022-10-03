@@ -1,6 +1,5 @@
 import 'Paths.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -18,7 +17,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: const AuthGate(), //Is in LoginScreen
@@ -26,14 +24,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
   final String title;
-
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -44,22 +38,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-
       _counter++;
     });
   }
-Future<void>_signOut()async{
+
+  Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
-}
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: ()=> _signOut(),
+            onPressed: () => _signOut(),
             icon: Icon(Icons.logout_rounded),
           )
         ],
@@ -67,7 +60,6 @@ Future<void>_signOut()async{
       ),
       body: Center(
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
