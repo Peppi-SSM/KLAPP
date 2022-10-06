@@ -43,23 +43,30 @@ class LoginScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/BackroundMountn.jpg"),
+              fit: BoxFit.cover,
+
+            ),
+          ),
           padding: const EdgeInsets.all(25),
           child: Column(
             children: [
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               const Text(
                 'Wilkommen bei KLAPP',
                 textScaleFactor: 2,
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'Melden Sie sich an, und legen Sie gleich los',
                     textScaleFactor: 1,
                   ),
@@ -73,9 +80,13 @@ class LoginScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
-                    Icon(Icons.person_rounded,
-                    size: 35,
-                    color: Colors.blue,
+                    Icon(
+                      Icons.person_rounded,
+                      size: 35,
+                      color: Colors.blue,
+                    ),
+                    SizedBox(
+                      width: 10,
                     ),
                     Flexible(
                         child: TextField(
@@ -85,11 +96,11 @@ class LoginScreen extends StatelessWidget {
                               labelText: 'Nutzername oder Email',
                               enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(width: 2, color: Colors.greenAccent),
+                                    BorderSide(width: 2, color: Colors.blue),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                BorderSide(width: 2, color: Color(0xffF02E65)),
+                                borderSide: BorderSide(
+                                    width: 2, color: Color(0xffF02E65)),
                               ),
                               errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -101,32 +112,75 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ), //Nutzername ende
-              const SizedBox(// Email
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const[
-                      TextField(
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Passwort',
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                              BorderSide(width: 2, color: Colors.greenAccent),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                              BorderSide(width: 2, color: Color(0xffF02E65)),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Color.fromARGB(255, 66, 125, 145),
+              const SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    Icon(
+                      Icons.password,
+                      size: 35,
+                      color: Colors.blue,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Flexible(
+                        child: TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Passwort',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(width: 2, color: Colors.blue),
                               ),
-                            ),
-                          )),
-                    ],
-                  )) //Email
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2, color: Color(0xffF02E65)),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: Color.fromARGB(255, 66, 125, 145),
+                                ),
+                              ),
+                            ))),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Container(
+                //color: Colors.lime,
+                height: 100,
+                //width: 320,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: 50,
+                      width: 150,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Regestrieren'),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                      width: 150,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Anmelden'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
             ],
           ),
         ),
