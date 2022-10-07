@@ -41,6 +41,7 @@ dependencies:
   flutterfire_ui: ^0.4.3+11
   animated_login: ^1.5.4
   firebase_analytics: ^9.3.7
+  google_sign_in: ^5.4.2
 
 dev_dependencies:
   flutter_test:
