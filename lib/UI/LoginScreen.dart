@@ -259,7 +259,7 @@ class _State extends State<LoginScreen> {
                                     color: Colors.white
                                 ),
                                 child: InkWell(
-                                  onTap: (){signInWithFacebook();},
+                                  onTap: () async {await signInWithFacebook();},
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(

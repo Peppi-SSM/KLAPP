@@ -43,7 +43,7 @@ dependencies:
   firebase_analytics: ^9.3.7
   google_sign_in: ^5.4.2
   flutter_adaptive_scaffold: ^0.0.6
-  flutter_facebook_login: ^3.0.0
+
 
 dev_dependencies:
   flutter_test:
