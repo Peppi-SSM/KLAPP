@@ -1,38 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:klapp02/Paths.dart';
 import 'package:flutterfire_ui/auth.dart';
-import 'package:animated_login/animated_login.dart';
 import 'package:klapp02/UI/RegestScreen.dart';
 import 'package:klapp02/Logic/SignInLogic.dart';
-
-// ignore: depend_on_referenced_packages
-import 'package:async/async.dart';
-
 // ignore: unnecessary_import
 import 'package:flutter/material.dart';
+import 'package:klapp02/UI/SignInScreen.dart';
 
-class AuthGate extends StatelessWidget {
-  const AuthGate({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          //User is not signed in
-          if (!snapshot.hasData) {
-            //return const SignInScreen(
-            //providerConfigs: [
-            //EmailProviderConfiguration(),
-            // GoogleProviderConfiguration(clientId: '835296411177-oeg97ol5k748qn2btm5tlunbh0ltv8bt.apps.googleusercontent.com')
-            //],);
-
-            return LoginScreen();
-          }
-          return const MyHomePage(title: 'Klapp');
-        });
-  }
-}
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -47,12 +22,7 @@ class _State extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text(
-          'Anmelden',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
+
       body: Center(
         child: Container(
           child: Stack(

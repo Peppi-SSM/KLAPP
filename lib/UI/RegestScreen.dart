@@ -16,9 +16,6 @@ class _State extends State<RegestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: const Text('Registrieren'),
-        ),
         body: Container(
           child: Stack(
             fit: StackFit.expand,

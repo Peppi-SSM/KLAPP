@@ -1,9 +1,36 @@
 import '../Paths.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../UI/SignInScreen.dart';
+
+
+class handleAuthState extends StatelessWidget {
+  const handleAuthState({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          //User is not signed in
+          if (!snapshot.hasData) {
+            //return const SignInScreen(
+            //providerConfigs: [
+            //EmailProviderConfiguration(),
+            // GoogleProviderConfiguration(clientId: '835296411177-oeg97ol5k748qn2btm5tlunbh0ltv8bt.apps.googleusercontent.com')
+            //],);
+
+            return SignInScreen();
+          }
+          return const MyHomePage(title: 'Klapp');
+        });
+  }
+}
+
 Future<UserCredential> signInWithGoogle() async {
   // Trigger the authentication flow
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  final GoogleSignInAccount? googleUser = await GoogleSignIn(
+    scopes: <String>["email"]).signIn();
 
   // Obtain the auth details from the request
   final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
@@ -46,3 +73,7 @@ SignInWithEmailAndPassword(String email, String password) async {
   final credantial = await FirebaseAuth.instance
       .signInWithEmailAndPassword(email: email, password: password);
 }
+SignOut(){
+  FirebaseAuth.instance.signOut();
+}
+

@@ -1,3 +1,5 @@
+import 'package:klapp02/Logic/SignInLogic.dart';
+
 import 'Paths.dart';
 
 Future<void> main() async {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AuthGate(), //Is in LoginScreen
+      home: const handleAuthState(), //Is in LoginScreen
     );
   }
 }
