@@ -1,7 +1,8 @@
 import '../Paths.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import '../UI/SignInScreen.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 
 class handleAuthState extends StatelessWidget {
@@ -28,21 +29,68 @@ class handleAuthState extends StatelessWidget {
 }
 
 Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
-  final GoogleSignInAccount? googleUser = await GoogleSignIn(
-    scopes: <String>["email"]).signIn();
+  if (!kIsWeb) {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser =
+        await GoogleSignIn(scopes: <String>["email"]).signIn();
 
-  // Obtain the auth details from the request
-  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
 
-  // Create a new credential
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth?.accessToken,
-    idToken: googleAuth?.idToken,
-  );
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
 
-  // Once signed in, return the UserCredential
-  return await FirebaseAuth.instance.signInWithCredential(credential);
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }else{
+    GoogleAuthProvider googleProvider = GoogleAuthProvider();
+
+    googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    googleProvider.setCustomParameters({
+      'login_hint': 'user@example.com'
+    });
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithPopup(googleProvider);
+    // return await FirebaseAuth.instance.signInWithRedirect(googleProvider);
+  }
+
+
+
+
+}
+
+Future<UserCredential> signInWithFacebook() async {
+  if(!kIsWeb){
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    // Once signed in, return the UserCredential
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+  }else{
+    // Create a new provider
+    FacebookAuthProvider facebookProvider = FacebookAuthProvider();
+
+    facebookProvider.addScope('email');
+    facebookProvider.setCustomParameters({
+      'display': 'popup',
+    });
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithPopup(facebookProvider);
+
+    // Or use signInWithRedirect
+    // return await FirebaseAuth.instance.signInWithRedirect(facebookProvider);
+
+  }
+
 }
 
 CreateUserWithEmailandPassword(
@@ -55,7 +103,6 @@ CreateUserWithEmailandPassword(
     );
     final user = FirebaseAuth.instance.currentUser;
     await user?.updateDisplayName(name);
-
 
     Navigator.pop(context);
   } on FirebaseAuthException catch (e) {
@@ -73,7 +120,7 @@ SignInWithEmailAndPassword(String email, String password) async {
   final credantial = await FirebaseAuth.instance
       .signInWithEmailAndPassword(email: email, password: password);
 }
-SignOut(){
+
+SignOut() {
   FirebaseAuth.instance.signOut();
 }
-
