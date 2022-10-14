@@ -4,5 +4,10 @@
          the Flutter tool needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
+
+    <provider android:authorities="com.facebook.app.FacebookContentProvider1234"
+        android:name="com.facebook.FacebookContentProvider"
+        android:exported="true" />
+
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
